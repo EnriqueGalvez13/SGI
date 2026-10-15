@@ -1,0 +1,1 @@
+ALTER TABLE `quotes` ADD `email` text DEFAULT '' NOT NULL;
