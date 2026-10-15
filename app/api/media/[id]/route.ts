@@ -1,0 +1,2 @@
+import {runtime} from '../../../../lib/api';
+export async function GET(req:Request,ctx:{params:Promise<{id:string}>}){const {id}=await ctx.params;if(!/^m-[a-f0-9-]{36}$/.test(id))return new Response('Not found',{status:404});const object=await runtime().BUCKET.get('gallery/'+id);if(!object)return new Response('Not found',{status:404});return new Response(object.body,{headers:{'Content-Type':object.httpMetadata?.contentType||'image/jpeg','Cache-Control':'public,max-age=86400','X-Content-Type-Options':'nosniff','Content-Disposition':'inline'}})}

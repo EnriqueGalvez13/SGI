@@ -8,7 +8,7 @@ export async function POST(req:Request){try{
  if(messages.at(-1)?.role!=='user'||messages.some((m:any)=>!m.parts[0].text))return json({error:'Escribe tu consulta.'},400);
  if(!await allow(req,'chat',15)||!await allow(req,'chat-total',150,true))return json({error:'Alcanzamos el límite de consultas por hoy. Podemos atenderte por WhatsApp.'},429);
  const model=runtime().GEMINI_MODEL||'gemini-3.5-flash';
- const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':runtime().GEMINI_API_KEY!},body:JSON.stringify({systemInstruction:{parts:[{text:context}]},contents:messages,generationConfig:{maxOutputTokens:800,temperature:.35}}),signal:AbortSignal.timeout(25000)});
+ const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':runtime().GEMINI_API_KEY!},body:JSON.stringify({systemInstruction:{parts:[{text:d.language==='en'?context.replace('Responde en español','Respond in English'):context}]},contents:messages,generationConfig:{maxOutputTokens:800,temperature:.35}}),signal:AbortSignal.timeout(25000)});
  if(!res.ok)return json({error:'El asistente no está disponible en este momento. Intenta más tarde o contáctanos por WhatsApp.'},503);
  const output:any=await res.json();const text=output.candidates?.[0]?.content?.parts?.filter((p:any)=>!p.thought&&typeof p.text==='string').map((p:any)=>p.text).join('');
  if(!text)return json({error:'No pude responder esa consulta. Nuestro equipo puede ayudarte por WhatsApp.'},503);return json({text});
