@@ -1,0 +1,2 @@
+import html from '../../lib/review.html?raw';
+export function GET(){return new Response(html,{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache','X-Robots-Tag':'noindex, nofollow'}})}
