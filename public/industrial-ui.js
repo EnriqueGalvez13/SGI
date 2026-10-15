@@ -1,9 +1,6 @@
 (()=>{
 const en=()=>document.documentElement.lang==='en',text=(es,english)=>en()?english:es;
 if(location.hash==='#experiencias'){history.replaceState(null,'','#opiniones');requestAnimationFrame(()=>document.querySelector('#opiniones').scrollIntoView())}
-const dial=document.querySelector('.floating-contact'),toggle=document.querySelector('#contact-toggle'),actions=document.querySelector('#contact-actions');
-function setDial(open){actions.hidden=!open;dial.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?text('Cerrar opciones de contacto','Close contact options'):text('Abrir opciones de contacto','Open contact options'))}
-toggle.addEventListener('click',()=>setDial(actions.hidden));document.addEventListener('click',e=>{if(!dial.contains(e.target))setDial(false)});actions.addEventListener('click',e=>{if(e.target.closest('a,button'))setDial(false)});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!actions.hidden){setDial(false);toggle.focus()}});
 const gallery=document.querySelector('.gallery'),viewer=document.querySelector('#work-lightbox'),image=document.querySelector('#work-lightbox-image'),frame=document.querySelector('#work-image-frame'),zoom=document.querySelector('#work-image-zoom');let selected=0,items=[];
 const details={
 'base-1':['Fabricación de estructuras metálicas adaptadas al proceso industrial.','Metal structures fabricated for industrial processes.'],
@@ -25,5 +22,5 @@ const parent=field.type==='radio'?field.closest('fieldset'):field.closest('label
 form.querySelectorAll('input:not([name=website]),select,textarea').forEach(field=>{field.addEventListener('blur',()=>{field.dataset.touched='1';validate(field)});field.addEventListener('input',()=>validate(field));field.addEventListener('change',()=>{field.dataset.touched='1';validate(field)});field.addEventListener('invalid',()=>{field.dataset.touched='1';validate(field,true)})});
 form.addEventListener('submit',()=>{if(form.checkValidity())submit.setAttribute('aria-busy','true')});new MutationObserver(()=>{if(!submit.disabled)submit.removeAttribute('aria-busy')}).observe(submit,{attributes:true,attributeFilter:['disabled']});form.addEventListener('reset',()=>{form.querySelectorAll('.field-error').forEach(el=>el.hidden=true);form.querySelectorAll('[aria-invalid]').forEach(el=>{el.removeAttribute('aria-invalid');el.removeAttribute('aria-describedby');delete el.dataset.touched})});
 document.addEventListener('sgi-language-change',()=>{form.querySelectorAll('[data-touched]').forEach(field=>validate(field))});}
-document.addEventListener('sgi-language-change',()=>{enhanceGallery();setDial(!actions.hidden)});
+document.addEventListener('sgi-language-change',()=>{enhanceGallery()});
 })();

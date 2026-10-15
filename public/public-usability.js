@@ -1,0 +1,7 @@
+(()=>{
+document.querySelectorAll('[data-quick-lang]').forEach(button=>button.addEventListener('click',()=>{const select=document.querySelector('#language-choice');select.value=button.dataset.quickLang;select.dispatchEvent(new Event('change',{bubbles:true}))}));
+document.querySelectorAll('#marcas .brand-art img').forEach(img=>{function fallback(){img.hidden=true;img.nextElementSibling.hidden=false}img.addEventListener('error',fallback);if(img.complete&&!img.naturalWidth)fallback()});
+const input=document.querySelector('#quote-files'),preview=document.querySelector('#quote-file-preview'),list=document.querySelector('#quote-file-list'),progress=document.querySelector('#quote-file-progress');
+window.sgiRenderFiles=(files,error)=>{preview.hidden=!files.length;list.replaceChildren();let total=0;for(const file of files){total+=file.size;const row=document.createElement('li'),name=document.createElement('span'),size=document.createElement('strong');name.textContent=file.name;size.textContent=file.size<1024?file.size+' B':file.size<1048576?(file.size/1024).toFixed(1)+' KB':(file.size/1048576).toFixed(2)+' MB';row.append(name,size);list.append(row)}progress.value=Math.min(total,15*1024*1024);progress.setAttribute('aria-valuetext',(total/1024/1024).toFixed(2)+' / 15 MB');preview.classList.toggle('file-error',!!error)};
+document.querySelector('#clear-quote-files').addEventListener('click',event=>{event.preventDefault();input.value='';input.dispatchEvent(new Event('change',{bubbles:true}))});
+})();
