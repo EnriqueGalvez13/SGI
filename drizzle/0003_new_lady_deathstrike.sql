@@ -1,0 +1,1 @@
+ALTER TABLE `quotes` ADD `attachments` text DEFAULT '[]' NOT NULL;
