@@ -9,7 +9,7 @@ export async function POST(req:Request){const saved:QuoteFile[]=[];try{
  const email=clean(d.email,254);if(typeof d.email!=='string'||d.email.length>254||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||email.includes(' '))return json({error:'Escribe un correo electrónico válido.'},400);
  const id=clean(d.id,36),company=clean(d.company,120),phone=clean(d.phone,30),service=clean(d.service,100),message=clean(d.message,3000);
  if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id)||company.length<2||phone.replace(/\D/g,'').length<10||!service||message.length<10)return json({error:'Revisa los datos de tu solicitud.'},400);
- if(files.length>3)return json({error:'Máximo 3 archivos de 5 MB cada uno.'},400);
+ if(files.length>3||files.reduce((sum,file)=>sum+file.size,0)>15*1024*1024)return json({error:'Máximo 3 archivos y 15 MB en total.'},400);
  if(await runtime().DB.prepare('SELECT id FROM quotes WHERE id=?').bind(id).first())return json({ok:true});
  if(!await allow(req,'quote',5)||!await allow(req,'quote-global',200,true))return json({error:'Límite de solicitudes alcanzado. Contáctanos por teléfono.'},429);
  const validated=[];for(const file of files)validated.push(await validateFile(file));
