@@ -1,0 +1,54 @@
+{
+  "husky": {
+    "source": "https://www.husky.co/globalassets/huskylogo-red.svg",
+    "file": "husky.svg"
+  },
+  "truper": {
+    "source": "https://www.truper.com/static/version1791842666/frontend/Truper/OneShot/es_MX/images/grupo-truper-logo.svg",
+    "file": "truper.svg"
+  },
+  "keyence": {
+    "source": "https://www.keyence.com/img/core/logo_header_01.svg",
+    "file": "keyence.svg"
+  },
+  "hilti": {
+    "source": "https://www.hilti.com/static/ui/assets/images/hilti-logo.svg",
+    "file": "hilti.svg"
+  },
+  "makita": {
+    "source": "https://makitatools.com/Content/Images/Global/Header/makita-logo.gif",
+    "file": "makita.gif"
+  },
+  "engel": {
+    "source": "https://www.engelglobal.com/images/engel-logo.svg",
+    "file": "engel.svg"
+  },
+  "arburg": {
+    "source": "https://www.arburg.com/resources/_build/images/logos/logo.svg",
+    "file": "arburg.svg"
+  },
+  "dewalt": {
+    "source": "https://bynder.sbdinc.com/transform/1d28105f-0bcc-4c55-816c-bbb190fbdf02/DW_Y-ON-B_LMB1?io=transform:fit,width:400&format=png",
+    "file": "dewalt.png"
+  },
+  "milwaukee": {
+    "source": "https://www.milwaukeetool.com/",
+    "file": "milwaukee.svg"
+  },
+  "banner": {
+    "source": "https://www.bannerengineering.com/us/en.html",
+    "file": "banner.svg"
+  },
+  "balluff": {
+    "source": "https://commons.wikimedia.org/wiki/File:Balluff_Logo.svg",
+    "file": "balluff.svg"
+  },
+  "3m": {
+    "source": "https://commons.wikimedia.org/wiki/File:3M_wordmark.svg",
+    "file": "3m.svg"
+  },
+  "eaton": {
+    "source": "https://commons.wikimedia.org/wiki/File:Eaton_Corporation_logo.svg",
+    "file": "eaton.svg"
+  }
+}
