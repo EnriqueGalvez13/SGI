@@ -13,3 +13,4 @@ export const rateBuckets = sqliteTable('rate_buckets', {
 });
 export const editorSessions=sqliteTable('editor_sessions',{id:text('id').primaryKey(),expires:integer('expires').notNull()});
 export const siteState=sqliteTable('site_state',{id:text('id').primaryKey(),payload:text('payload').notNull(),revision:integer('revision').notNull()});
+export const quotes=sqliteTable('quotes',{id:text('id').primaryKey(),company:text('company').notNull(),phone:text('phone').notNull(),service:text('service').notNull(),message:text('message').notNull(),createdAt:text('created_at').notNull()});
