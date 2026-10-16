@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo Static visual preview requires no dependencies",
+  "buildCommand": "node scripts/build-vercel-preview.mjs",
+  "outputDirectory": ".vercel-preview",
+  "headers": [{ "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }]
+}
