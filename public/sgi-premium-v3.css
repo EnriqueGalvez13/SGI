@@ -1,0 +1,64 @@
+
+/* SGI Premium 3.0 | Progressive visual enhancement. Original content and handlers preserved. */
+:root{--sgi-v3-navy:#101f35;--sgi-v3-red:#ba2639;--sgi-v3-silver:#e6ebf0;--sgi-v3-ink:#182638}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-feature-settings:"kern" 1;text-rendering:optimizeLegibility}
+:where(a,button,input,textarea,select):focus-visible{outline:3px solid #e94d5d!important;outline-offset:3px}
+#inicio,#servicios,#trabajos,#nosotros,#certificados,#contacto,#cumplimiento,#ubicacion{scroll-margin-top:105px}
+.hero{isolation:isolate}
+.hero-copy h1{letter-spacing:-.055em;line-height:1.04;text-wrap:balance}
+.hero-copy .intro{max-width:56ch;line-height:1.75}
+.hero-photo{overflow:hidden;border-radius:12px}
+.hero-photo img{transition:transform .85s cubic-bezier(.2,.8,.2,1),filter .8s;filter:contrast(1.06) saturate(.89)}
+.hero-photo:hover img{transform:scale(1.035)}
+.section-head h2{letter-spacing:-.045em;text-wrap:balance}
+.section-head>p{line-height:1.75}
+.sgi-v3-section-kicker{display:flex;align-items:center;gap:13px;margin:0 0 28px;color:#8a98a8;font:700 10px/1.5 system-ui,sans-serif;letter-spacing:.19em}
+.sgi-v3-section-line{height:2px;width:32px;background:var(--sgi-v3-red);display:block;flex-shrink:0}
+.sgi-v3-inline-cta{margin:clamp(28px,4vw,60px) auto 0;padding:clamp(20px,3vw,36px);border:1px solid rgba(108,132,159,.28);border-left:4px solid var(--sgi-v3-red);border-radius:12px;background:linear-gradient(115deg,rgba(242,246,250,.92),rgba(255,255,255,.95));color:var(--sgi-v3-ink);display:flex;justify-content:space-between;align-items:center;gap:24px;box-shadow:0 15px 35px rgba(13,29,48,.045)}
+.sgi-v3-inline-cta strong{font-size:clamp(17px,2vw,23px);letter-spacing:-.025em}
+.sgi-v3-inline-cta p{margin:8px 0 0;font-size:14px;line-height:1.6;color:#516176}
+.sgi-v3-cta-link{background:var(--sgi-v3-navy);color:#fff!important;padding:15px 20px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;gap:14px;text-decoration:none!important;white-space:nowrap;font-weight:700;font-size:13px;transition:transform .2s,background .2s}
+.sgi-v3-cta-link:hover{transform:translateY(-2px);background:var(--sgi-v3-red)}
+.service-card,.project-card,.work-card{transition:transform .25s ease,box-shadow .25s ease}
+.service-card:hover,.project-card:hover,.work-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(9,29,50,.12)}
+.service-card img,.projects img{transition:transform .5s ease}
+.service-card:hover img,.projects article:hover img{transform:scale(1.025)}
+#certificados img{object-fit:contain}
+#quote-form{scroll-margin-top:115px}
+#quote-form :where(input,textarea,select){max-width:100%}
+.sgi-v3-progress{position:fixed;left:0;top:0;height:3px;background:var(--sgi-v3-red);width:0;z-index:99999;pointer-events:none;transition:width .12s linear}
+.sgi-v3-skip{position:fixed;top:-100px;left:12px;z-index:100000;background:#fff;color:#111;padding:12px 18px;border:2px solid #ba2639;border-radius:6px}
+.sgi-v3-skip:focus{top:12px}
+[data-theme="dark"] .sgi-v3-inline-cta{background:linear-gradient(115deg,#1c2a3b,#152337);color:#f7f9fb;border-color:#40516a;border-left-color:#e04456}
+[data-theme="dark"] .sgi-v3-inline-cta p{color:#b7c3d2}
+[data-theme="dark"] .sgi-v3-cta-link{background:#b92c40}
+@media(max-width:760px){
+ .sgi-v3-inline-cta{flex-direction:column;align-items:stretch;gap:18px}
+ .sgi-v3-cta-link{width:100%}
+ .sgi-v3-section-kicker{font-size:9px;letter-spacing:.12em}
+ .hero-copy h1{letter-spacing:-.04em}
+ .hero-photo{border-radius:8px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .hero-photo img,.service-card,.project-card,.work-card,.sgi-v3-cta-link{transition:none!important;transform:none!important}
+}
+
+/* Precision CNC showroom */
+.cnc-section{background:linear-gradient(180deg,#f1f4f7 0%,#fff 100%);padding-block:clamp(55px,7vw,110px)}
+.cnc-viewer-card,.cnc-spec-panel{border-radius:14px;border:1px solid #344357;box-shadow:0 24px 55px rgba(11,25,43,.16)}
+.cnc-tabs{gap:10px;padding:17px}
+.cnc-tab{transition:background .2s,border-color .2s,transform .2s;font-weight:650}
+.cnc-tab:hover{transform:translateY(-1px)}
+.cnc-tab:focus-visible{outline:2px solid white!important;outline-offset:2px}
+.cnc-canvas-wrap{background:radial-gradient(circle at 50% 40%,#26394b,#0e1723 75%)}
+.cnc-spec-panel{background:linear-gradient(145deg,#152437,#0e1723)}
+.cnc-spec-panel dt{color:#ff7780}
+.cnc-capabilities span{border-radius:6px}
+#trabajos .portfolio-filters button{transition:transform .2s,background .2s}
+#trabajos .portfolio-filters button:hover{transform:translateY(-2px)}
+#contacto{position:relative}
+#contacto .button{transition:transform .2s}
+#contacto .button:hover{transform:translateY(-2px)}
+@media(max-width:850px){.cnc-layout{grid-template-columns:minmax(0,1fr)}.cnc-tabs{scroll-snap-type:x proximity}.cnc-tab{scroll-snap-align:start}}

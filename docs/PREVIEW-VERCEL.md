@@ -6,3 +6,6 @@ Vercel publica una vista previa visual mediante scripts/build-vercel-preview.mjs
 
 Compilación del proyecto original: npm ci --ignore-scripts y npm run build.
 Compilación visual Vercel: node scripts/build-vercel-preview.mjs.
+
+## Premium v3
+Actualizado desde SGI-Nogales-Premium-v3.zip: portada, estilos y navegación accesible. La vista previa conserva las mismas limitaciones de Cloudflare indicadas arriba.
